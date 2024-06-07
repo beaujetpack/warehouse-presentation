@@ -2,7 +2,23 @@
 <html>
 <head>
   <title>Warehouse Presentation</title>
-  <script src="https://accounts.google.com/gsi/client" async defer></script>
+  <style>
+    body, html {
+      margin: 0;
+      padding: 0;
+      width: 100%;
+      height: 100%;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    #presentationFrame {
+      width: 100%;
+      height: 100%;
+      border: none;
+    }
+  </style>  
+<script src="https://accounts.google.com/gsi/client" async defer></script>
   <script src="https://apis.google.com/js/api.js"></script>
   <script>
     // Client ID and API key from the Developer Console
@@ -98,7 +114,7 @@
   </script>
 </head>
 <body>
-  <iframe id="presentationFrame" src="" width="100%" height="100%"></iframe>
+  <iframe id="presentationFrame" src="" allowfullscreen="true" mozallowfullscreen="true" webkitallowfullscreen="true"></iframe>
   <button id="authorize_button" style="display: none;" onclick="handleAuthClick()">Authorize</button>
 </body>
 </html>
