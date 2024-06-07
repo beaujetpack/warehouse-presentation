@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Warehouse Presentation</title>
+</head>
+<body>
+  <iframe id="presentationFrame" src="" width="100%" height="100%"></iframe>
+
+  <script>
+    async function fetchLatestUrl() {
+      const sheetId = '17ZT6x2TCAPl_yNpqe8kZQ6KOtD0Du5-GnbA4fAgD6xI';  // Replace with your Google Sheet ID
+      const range = 'Sheet1!A1';
+      const apiKey = 'AIzaSyAhSp3m4-0b-0BJkyOXIL2v5AtXYzdCsHs';  // Replace with your Google API key
+      const url = `https://sheets.googleapis.com/v4/spreadsheets/${sheetId}/values/${range}?key=${apiKey}`;
+      
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        const presentationUrl = data.values[0][0];
+        document.getElementById('presentationFrame').src = presentationUrl;
+      } catch (error) {
+        console.error('Error fetching presentation URL:', error);
+      }
+    }
+
+    setInterval(fetchLatestUrl, 3600000);  // Update every hour
+    fetchLatestUrl();  // Initial load
+  </script>
+</body>
+</html>
