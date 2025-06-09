@@ -153,7 +153,9 @@
           const presentationUrl = range.values[0][0];
           if (presentationUrl !== currentUrl) {
             currentUrl = presentationUrl;
-            document.getElementById('presentationFrame').src = presentationUrl;
+            //BROKEN
+            //document.getElementById('presentationFrame').src = presentationUrl;
+            document.getElementById('presentationFrame').src = "https://docs.google.com/presentation/d/1s2Arc4-NR8AoaAkq0qPSzDbIoTSJbwFa/embed?start=true&loop=true&delayms=10000&rm=minimal"
             console.log('Presentation URL updated to:', currentUrl);
           }
         } else {
